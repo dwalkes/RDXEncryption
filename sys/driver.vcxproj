@@ -97,6 +97,12 @@
     <PostBuildEvent>
       <Command>copy $(OutDir)dcrypt.sys $(OutDir)..\..\debug\i386\dcrypt.sys</Command>
     </PostBuildEvent>
+    <CustomBuild>
+      <Command>yasm -Xvc -f win32 -o "$(OutDir)obj\$(ProjectName)\%(Filename).obj" "%(FullPath)"</Command>
+    </CustomBuild>
+    <CustomBuild>
+      <Outputs>$(OutDir)obj\$(ProjectName)\%(Filename).obj</Outputs>
+    </CustomBuild>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <BuildLog>
@@ -220,22 +226,22 @@
     <ClCompile Include="..\crypto\xts_fast.c" />
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="..\crypto\i386\aes_i386.asm">
-      <FileType>Document</FileType>
+    <CustomBuild Include="..\crypto\i386\aes_i386.asm">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </MASM>
-    <MASM Include="..\crypto\i386\aes_padlock_i386.asm">
       <FileType>Document</FileType>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\aes_padlock_i386.asm">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </MASM>
-    <MASM Include="..\crypto\i386\twofish_i386.asm">
       <FileType>Document</FileType>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\twofish_i386.asm">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </MASM>
-    <MASM Include="..\crypto\i386\xts_aes_ni_i386.asm">
       <FileType>Document</FileType>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\xts_aes_ni_i386.asm">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </MASM>
+      <FileType>Document</FileType>
+    </CustomBuild>
     <CustomBuild Include="..\crypto\amd64\aes_amd64.asm">
       <FileType>Document</FileType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

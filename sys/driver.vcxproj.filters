@@ -213,20 +213,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="..\crypto\i386\aes_i386.asm">
-      <Filter>Source Files\crypto\i386</Filter>
-    </MASM>
-    <MASM Include="..\crypto\i386\aes_padlock_i386.asm">
-      <Filter>Source Files\crypto\i386</Filter>
-    </MASM>
-    <MASM Include="..\crypto\i386\twofish_i386.asm">
-      <Filter>Source Files\crypto\i386</Filter>
-    </MASM>
-    <MASM Include="..\crypto\i386\xts_aes_ni_i386.asm">
-      <Filter>Source Files\crypto\i386</Filter>
-    </MASM>
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="driver.rc" />
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +227,18 @@
     </CustomBuild>
     <CustomBuild Include="..\crypto\amd64\xts_aes_ni_amd64.asm">
       <Filter>Source Files\crypto\amd64</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\aes_i386.asm">
+      <Filter>Source Files\crypto\i386</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\aes_padlock_i386.asm">
+      <Filter>Source Files\crypto\i386</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\twofish_i386.asm">
+      <Filter>Source Files\crypto\i386</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\xts_aes_ni_i386.asm">
+      <Filter>Source Files\crypto\i386</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

@@ -132,6 +132,12 @@
       <Command>
       </Command>
     </PostBuildEvent>
+    <CustomBuild>
+      <Command>yasm -Xvc -f win32 -o "$(OutDir)obj\$(ProjectName)\%(Filename).obj" "%(FullPath)"</Command>
+    </CustomBuild>
+    <CustomBuild>
+      <Outputs>$(OutDir)obj\$(ProjectName)\%(Filename).obj</Outputs>
+    </CustomBuild>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <BuildLog>
@@ -238,6 +244,12 @@
       <Command>
       </Command>
     </PostBuildEvent>
+    <CustomBuild>
+      <Command>yasm -Xvc -f win32 -o "$(OutDir)obj\$(ProjectName)\%(Filename).obj" "%(FullPath)"</Command>
+    </CustomBuild>
+    <CustomBuild>
+      <Outputs>$(OutDir)obj\$(ProjectName)\%(Filename).obj</Outputs>
+    </CustomBuild>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <BuildLog>

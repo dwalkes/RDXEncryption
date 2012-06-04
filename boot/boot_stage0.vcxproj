@@ -42,18 +42,24 @@
       <Command>copy /B $(ProjectDir)\bin\stage1.bin+$(ProjectDir)\bin\boot_hook.mod+$(ProjectDir)\bin\boot_load.mod $(ProjectDir)\bin\dcldr
 copy /B $(ProjectDir)\bin\stage1.bin+$(ProjectDir)\bin\boot_hook_small.mod+$(ProjectDir)\bin\boot_load.mod $(ProjectDir)\bin\dcldr_small</Command>
     </PostBuildEvent>
+    <CustomBuild>
+      <Command>yasm -Xvc -f win32 -o "$(OutDir)obj\$(ProjectName)\%(Filename).obj" "%(FullPath)"</Command>
+    </CustomBuild>
+    <CustomBuild>
+      <Outputs>$(OutDir)obj\$(ProjectName)\%(Filename).obj</Outputs>
+    </CustomBuild>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="asm\mbr_boot.asm">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"%fasm%\fasm.exe" "%(FullPath)" bin\%(Filename).bin
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(fasm)\fasm.exe" "%(FullPath)" bin\%(Filename).bin
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\bin\%(Filename).bin;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="asm\stage1.asm">
       <FileType>Document</FileType>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">set include=%fasm%\INCLUDE
-"%fasm%\fasm.exe" "%(FullPath)" bin\%(Filename).bin
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">set include=$(fasm)\INCLUDE
+"$(fasm)\fasm.exe" "%(FullPath)" bin\%(Filename).bin
 </Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bin\%(Filename).bin;%(Outputs)</Outputs>
     </CustomBuild>

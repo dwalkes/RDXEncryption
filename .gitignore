@@ -62,3 +62,4 @@ packages/
 
 # dcrypt specific files
 *.tlog
+*.lastbuildstate

@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{46a586cc-56bc-4507-bd23-d1442345fe31}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\crypto">
+      <UniqueIdentifier>{b78a81bd-81a6-496b-a1f2-7d289e6c4763}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\crypto\i386">
+      <UniqueIdentifier>{d0d97fb6-f6c3-4e05-9ef8-2733e490edfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{fb5cfdae-7fae-4bc5-b269-399da8db1cb7}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\crypto">
+      <UniqueIdentifier>{b14e3f85-562e-4997-bbfd-c0f59441aab1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="aes_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\crc32.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="crc32_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="crypto_tests.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pkcs5_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="serpent_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sha512_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="twofish_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xts_test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\small\aes_small.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\small\pkcs5_small.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\small\serpent_small.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\small\sha512_small.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\small\twofish_small.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\small\xts_small.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\crypto\small\aes_padlock_small.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aes_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\crc32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="crc32_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pkcs5_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="serpent_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sha512_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="twofish_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xts_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\small\aes_small.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\small\pkcs5_small.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\small\serpent_small.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\small\sha512_small.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\small\twofish_small.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\small\xts_small.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\crypto\small\aes_padlock_small.asm">
+      <Filter>Source Files\crypto\i386</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

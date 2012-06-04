@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EA6284CE-8C7E-4461-BBED-CC3D5E95513B}</ProjectGuid>
+    <RootNamespace>driver</RootNamespace>
+    <Keyword>CustomAppWizProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <ReferencePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">c:\WinDDK\6000\inc\ddk;$(ReferencePath)</ReferencePath>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\$(Configuration)\i386\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)</IntDir>
+    <ExtensionsToDeleteOnClean Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">*.obj%3b*.ilk%3b*.tlb%3b*.tli%3b*.tlh%3b*.tmp%3b*.rsp%3b*.pgc%3b*.pgd%3b$(TargetPath)</ExtensionsToDeleteOnClean>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</GenerateManifest>
+    <ReferencePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">c:\WinDDK\6000\inc\ddk;$(ReferencePath)</ReferencePath>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)\$(Configuration)\amd64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)</IntDir>
+    <ExtensionsToDeleteOnClean Condition="'$(Configuration)|$(Platform)'=='Release|x64'">*.obj%3b*.ilk%3b*.tlb%3b*.tli%3b*.tlh%3b*.tmp%3b*.rsp%3b*.pgc%3b*.pgd%3b$(TargetPath)</ExtensionsToDeleteOnClean>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <BuildLog>
+      <Path>$(OutDir)obj\$(ProjectName)\BuildLog.htm</Path>
+    </BuildLog>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <MASM>
+      <ObjectFileName>$(OutDir)obj\$(ProjectName)\$(ProjectName).obj</ObjectFileName>
+    </MASM>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>$(DDK)\inc\ddk\;$(DDK)\inc\crt\;$(DDK)\inc\api\;..\include;..\include\sys;..\crypto;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>IS_DRIVER;_X86_=1;i386=1;CONDITION_HANDLING=1;NT_INST=0;_NT1X_=100;WINNT=1;_WIN32_WINNT=0x0600;WINVER=0x0600;_WIN32_IE=0x0700;WIN32_LEAN_AND_MEAN=1;DEVL=1;__BUILDMACHINE__=WinDDK;FPO=0;NDEBUG;_DLL=1;_WIN2K_COMPAT_SLIST_USAGE;NTDDI_VERSION=0x06000000;KMDF_MAJOR_VERSION=01;KMDF_MINOR_VERSION=005;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ObjectFileName>$(OutDir)obj\$(ProjectName)\</ObjectFileName>
+      <ProgramDataBaseFileName>$(OutDir)obj\$(ProjectName)\vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(OutDir)obj\$(ProjectName)\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>ntoskrnl.lib hal.lib %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(OutDir)dcrypt.sys</OutputFile>
+      <AdditionalLibraryDirectories>$(DDK)\lib\wlh\i386\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Native</SubSystem>
+      <Driver>Driver</Driver>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <BaseAddress>0x00010000</BaseAddress>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)dcrypt.sys $(OutDir)..\..\debug\i386\dcrypt.sys</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <BuildLog>
+      <Path>$(OutDir)obj\$(ProjectName)\BuildLog.htm</Path>
+    </BuildLog>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <MASM>
+      <ObjectFileName>$(OutDir)obj\$(ProjectName)\$(ProjectName).obj</ObjectFileName>
+    </MASM>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <AdditionalIncludeDirectories>$(DDK)\inc\ddk\;$(DDK)\inc\crt\;$(DDK)\inc\api\;..\include;..\include\sys;..\crypto;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>IS_DRIVER;_WIN64;_AMD64_;AMD64;CONDITION_HANDLING=1;NT_INST=0;_NT1X_=100;WINNT=1;_WIN32_WINNT=0x0600;WINVER=0x0600;_WIN32_IE=0x0700;WIN32_LEAN_AND_MEAN=1;DEVL=1;__BUILDMACHINE__=WinDDK;NDEBUG;_DLL=1;_WIN2K_COMPAT_SLIST_USAGE;NTDDI_VERSION=0x06000000;KMDF_MAJOR_VERSION=01;KMDF_MINOR_VERSION=005;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <StringPooling>true</StringPooling>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ObjectFileName>$(OutDir)obj\$(ProjectName)\</ObjectFileName>
+      <ProgramDataBaseFileName>$(OutDir)obj\$(ProjectName)\vc80.pdb</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>StdCall</CallingConvention>
+      <DisableSpecificWarnings>4103;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ResourceOutputFileName>$(OutDir)obj\$(ProjectName)\%(Filename).res</ResourceOutputFileName>
+    </ResourceCompile>
+    <Link>
+      <AdditionalOptions>ntoskrnl.lib hal.lib %(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(OutDir)dcrypt.sys</OutputFile>
+      <AdditionalLibraryDirectories>$(DDK)\lib\wlh\amd64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Native</SubSystem>
+      <Driver>Driver</Driver>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <BaseAddress>0x00010000</BaseAddress>
+      <RandomizedBaseAddress>
+      </RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)dcrypt.sys $(OutDir)..\..\debug\amd64\dcrypt.sys</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\sys\benchmark.h" />
+    <ClInclude Include="..\include\sys\boot_pass.h" />
+    <ClInclude Include="..\include\sys\crypto_head.h" />
+    <ClInclude Include="..\include\sys\data_wipe.h" />
+    <ClInclude Include="..\include\sys\debug.h" />
+    <ClInclude Include="..\include\defines.h" />
+    <ClInclude Include="..\include\sys\devhook.h" />
+    <ClInclude Include="..\include\sys\driver.h" />
+    <ClInclude Include="..\include\sys\dump_hook.h" />
+    <ClInclude Include="..\include\sys\enc_dec.h" />
+    <ClInclude Include="..\include\sys\fast_crypt.h" />
+    <ClInclude Include="..\include\sys\fsf_control.h" />
+    <ClInclude Include="..\include\sys\io_control.h" />
+    <ClInclude Include="..\include\sys\mem_lock.h" />
+    <ClInclude Include="..\include\sys\misc.h" />
+    <ClInclude Include="..\include\sys\misc_irp.h" />
+    <ClInclude Include="..\include\sys\misc_mem.h" />
+    <ClInclude Include="..\include\sys\misc_volume.h" />
+    <ClInclude Include="..\include\sys\mount.h" />
+    <ClInclude Include="..\include\sys\pnp_irp.h" />
+    <ClInclude Include="..\include\sys\prng.h" />
+    <ClInclude Include="..\include\sys\readwrite.h" />
+    <ClInclude Include="..\include\sys\storage.h" />
+    <ClInclude Include="..\crypto\aes_asm.h" />
+    <ClInclude Include="..\crypto\aes_key.h" />
+    <ClInclude Include="..\crypto\aes_padlock.h" />
+    <ClInclude Include="..\crypto\crc32.h" />
+    <ClInclude Include="..\crypto\pkcs5.h" />
+    <ClInclude Include="..\crypto\serpent.h" />
+    <ClInclude Include="..\crypto\sha512.h" />
+    <ClInclude Include="..\crypto\twofish.h" />
+    <ClInclude Include="..\crypto\xts_aes_ni.h" />
+    <ClInclude Include="..\crypto\xts_fast.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="benchmark.c" />
+    <ClCompile Include="boot_pass.c" />
+    <ClCompile Include="crypto_head.c" />
+    <ClCompile Include="data_wipe.c" />
+    <ClCompile Include="debug.c" />
+    <ClCompile Include="devhook.c" />
+    <ClCompile Include="driver.c" />
+    <ClCompile Include="dump_hook.c" />
+    <ClCompile Include="enc_dec.c" />
+    <ClCompile Include="fast_crypt.c" />
+    <ClCompile Include="fsf_control.c" />
+    <ClCompile Include="io_control.c" />
+    <ClCompile Include="mem_lock.c" />
+    <ClCompile Include="misc.c" />
+    <ClCompile Include="misc_irp.c" />
+    <ClCompile Include="misc_mem.c" />
+    <ClCompile Include="misc_volume.c" />
+    <ClCompile Include="mount.c" />
+    <ClCompile Include="pnp_irp.c" />
+    <ClCompile Include="prng.c" />
+    <ClCompile Include="readwrite.c" />
+    <ClCompile Include="storage.c" />
+    <ClCompile Include="..\crypto\aes_key.c" />
+    <ClCompile Include="..\crypto\crc32.c" />
+    <ClCompile Include="..\crypto\pkcs5.c" />
+    <ClCompile Include="..\crypto\serpent.c" />
+    <ClCompile Include="..\crypto\sha512.c" />
+    <ClCompile Include="..\crypto\twofish.c" />
+    <ClCompile Include="..\crypto\xts_fast.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="..\crypto\i386\aes_i386.asm">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </MASM>
+    <MASM Include="..\crypto\i386\aes_padlock_i386.asm">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </MASM>
+    <MASM Include="..\crypto\i386\twofish_i386.asm">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </MASM>
+    <MASM Include="..\crypto\i386\xts_aes_ni_i386.asm">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </MASM>
+    <CustomBuild Include="..\crypto\amd64\aes_amd64.asm">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">yasm -Xvc -f win32 -m amd64 -o "$(OutDir)obj\$(ProjectName)\%(Filename).obj" "%(FullPath)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)obj\$(ProjectName)\%(Filename).obj;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\amd64\aes_padlock_amd64.asm">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">yasm -Xvc -f win32 -m amd64 -o "$(OutDir)obj\$(ProjectName)\%(Filename).obj" "%(FullPath)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)obj\$(ProjectName)\%(Filename).obj;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\amd64\twofish_amd64.asm">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">yasm -Xvc -f win32 -m amd64 -o "$(OutDir)obj\$(ProjectName)\%(Filename).obj" "%(FullPath)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)obj\$(ProjectName)\%(Filename).obj;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\amd64\xts_aes_ni_amd64.asm">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">yasm -Xvc -f win32 -m amd64 -o "$(OutDir)obj\$(ProjectName)\%(Filename).obj" "%(FullPath)"
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutDir)obj\$(ProjectName)\%(Filename).obj;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="driver.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

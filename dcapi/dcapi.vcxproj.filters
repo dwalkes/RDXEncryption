@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{36c86c5a-5600-46d4-a910-195c405200db}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\crypto">
+      <UniqueIdentifier>{dd235f4d-f40f-46b4-b58e-380d08648503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\crypto\i386">
+      <UniqueIdentifier>{9ebed5b6-fc20-4210-99e8-90ca6e27ed35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\crypto\amd64">
+      <UniqueIdentifier>{32cc72f2-e9be-4a66-bf52-35c1628c45da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{54f09a87-a961-4788-b34c-9e39159227f4}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\crypto">
+      <UniqueIdentifier>{2660b408-19fa-4140-9ad3-97b72c6aaf36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{d78932ea-d170-4cef-b151-df34bfc3ece3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cd_enc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dcapi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="disk_name.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="drv_ioctl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="drvinst.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="keyfiles.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mbrinst.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rand.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\aes_key.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\crc32.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\pkcs5.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\serpent.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\sha512.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\twofish.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\crypto\xts_fast.c">
+      <Filter>Source Files\crypto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\dcapi\cd_enc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dcapi\dcapi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dcapi\dcres.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dcapi\disk_name.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dcapi\drv_ioctl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dcapi\drvinst.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\iso_fs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dcapi\keyfiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dcapi\mbrinst.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dcapi\misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ntdll.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dcapi\rand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\aes_asm.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\aes_key.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\aes_padlock.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\crc32.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\pkcs5.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\serpent.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\sha512.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\twofish.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\xts_aes_ni.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\crypto\xts_fast.h">
+      <Filter>Header Files\crypto</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="dcres.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\crypto\i386\aes_i386.asm">
+      <Filter>Source Files\crypto\i386</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\aes_padlock_i386.asm">
+      <Filter>Source Files\crypto\i386</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\twofish_i386.asm">
+      <Filter>Source Files\crypto\i386</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\i386\xts_aes_ni_i386.asm">
+      <Filter>Source Files\crypto\i386</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\amd64\aes_amd64.asm">
+      <Filter>Source Files\crypto\amd64</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\amd64\aes_padlock_amd64.asm">
+      <Filter>Source Files\crypto\amd64</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\amd64\twofish_amd64.asm">
+      <Filter>Source Files\crypto\amd64</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\crypto\amd64\xts_aes_ni_amd64.asm">
+      <Filter>Source Files\crypto\amd64</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

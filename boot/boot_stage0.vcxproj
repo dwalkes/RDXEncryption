@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2FAD3A8A-9699-4423-B491-7D4789971FF2}</ProjectGuid>
+    <RootNamespace>boot_stage0</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\$(Configuration)\boot\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <BuildLog>
+      <Path>$(OutDir)obj\$(ProjectName)\BuildLog.htm</Path>
+    </BuildLog>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>copy /B $(ProjectDir)\bin\stage1.bin+$(ProjectDir)\bin\boot_hook.mod+$(ProjectDir)\bin\boot_load.mod $(ProjectDir)\bin\dcldr
+copy /B $(ProjectDir)\bin\stage1.bin+$(ProjectDir)\bin\boot_hook_small.mod+$(ProjectDir)\bin\boot_load.mod $(ProjectDir)\bin\dcldr_small</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="asm\mbr_boot.asm">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"%fasm%\fasm.exe" "%(FullPath)" bin\%(Filename).bin
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\bin\%(Filename).bin;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="asm\stage1.asm">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">set include=%fasm%\INCLUDE
+"%fasm%\fasm.exe" "%(FullPath)" bin\%(Filename).bin
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">bin\%(Filename).bin;%(Outputs)</Outputs>
+    </CustomBuild>
+    <None Include="asm\macro.inc" />
+    <None Include="asm\struct.inc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="boot_hook.vcxproj">
+      <Project>{272e05bf-8d8c-476f-9210-e1fe68e98da9}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="boot_hook_small.vcxproj">
+      <Project>{f84a5b22-3d9c-44c5-9f91-0a06228925b6}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="boot_load.vcxproj">
+      <Project>{41b3372a-8cf3-4697-ac8a-7fc669427d86}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
